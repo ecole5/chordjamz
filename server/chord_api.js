@@ -3,10 +3,16 @@
 var express = require('express');
 var router = express.Router();
 
-
 router.get('/', function(req, res, next) {
-    res.send('Got a GET request for the api');
+      Tab.find(function(err, tabs) {
+            if (err)
+                res.send(err);
+
+            res.json(tabs);
+      });
+
 });
+
 
 
 router.put('/', function(req, res, next) {
@@ -15,7 +21,18 @@ router.put('/', function(req, res, next) {
 
 
 router.post('/', function(req, res, next) {
-    res.send('Got a POST request for the api');
+     var tab = new Tab();      // create a new instance of the Bear model
+        tab.songName = req.body.songName;  // set the bears name (comes from the request)
+        tab.content = req.body.content;  // set the bears name (comes from the request)
+
+
+        // save the bear and check for errors
+        tab.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'Tab created!' });
+        });
 });
 
 

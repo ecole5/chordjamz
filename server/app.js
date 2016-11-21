@@ -5,6 +5,10 @@ var app = express();
 var path = require('path');
 var logger = require('morgan'); // helps log all requests
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://admin:admin@ds159517.mlab.com:59517/guitarjamsdatabase');
+Tab = require('./models/tab');
+
 
 var cookieParser = require('cookie-parser'); // for handling cookies
 var bodyParser = require('body-parser'); // for parsing request URL
