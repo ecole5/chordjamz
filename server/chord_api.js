@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
       Tab.find(function(err, tabs) {
             if (err)
                 res.send(err);
-
+            
             res.json(tabs);
       });
 
