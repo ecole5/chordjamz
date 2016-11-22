@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { ChordListComponent } from './chord-list/chord-list.component';
 import { HttpModule, JsonpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { PubchordComponent } from './pubchord/pubchord.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PubchordComponent
+    ChordListComponent,
   ],
   imports: [
     BrowserModule,

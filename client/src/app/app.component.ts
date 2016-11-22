@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -8,14 +7,6 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  title = 'TabJamz';
-  about = 'Welcome to TabJamz. Feel free to explore all the public tab and login to create your own.';
-imagePath = './ad.jpg';
-  
-
-
-
-
 
 
 }
