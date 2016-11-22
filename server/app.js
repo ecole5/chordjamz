@@ -27,7 +27,7 @@ app.use('/',express.static(__dirname+'/../client/dist'));
 
 // Our ReST API
 var api = require('./chord_api');
-app.use('/myapi', api);
+app.use('/api', api);
 
 
 // Function to handle client errors
@@ -42,6 +42,5 @@ app.use(function(req, res, next) {
 app.listen(8080, function () {
     console.log('Server listening on port 8080!');
 });
-app.use("/public", express.static('public')); //used to solve single origin problem. Use the server to deliver the webpage twitter.html
 
 module.exports = app; 

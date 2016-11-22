@@ -3,7 +3,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
+router.route('/chord')
+    .get(function(req, res, next) {
       Tab.find(function(err, tabs) {
             if (err)
                 res.send(err);
@@ -11,16 +12,16 @@ router.get('/', function(req, res, next) {
             res.json(tabs);
       });
 
-});
+})
 
 
 
-router.put('/', function(req, res, next) {
+.put(function(req, res) {
     res.send('Got a PUT request for the api');
-});
+})
 
 
-router.post('/', function(req, res, next) {
+.post(function(req, res) {
      var tab = new Tab();      // create a new instance of the Bear model
         tab.songName = req.body.songName;  // set the bears name (comes from the request)
         tab.content = req.body.content;  // set the bears name (comes from the request)
@@ -33,10 +34,10 @@ router.post('/', function(req, res, next) {
 
             res.json({ message: 'Tab created!' });
         });
-});
+})
 
 
-router.delete('/', function(req, res, next) {
+.delete( function(req, res) {
     res.send('Got a DELETE request for the api');
 });
 
