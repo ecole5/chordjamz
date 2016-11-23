@@ -6,6 +6,7 @@ import { ChordListComponent } from './chord-list/chord-list.component';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { HeaderComponent } from './header/header.component';
 import { EditChordComponent } from './edit-chord/edit-chord.component';
+import { UserAreaComponent } from './user-area/user-area.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { EditChordComponent } from './edit-chord/edit-chord.component';
     ChordListComponent,
     HeaderComponent,
     EditChordComponent,
+    UserAreaComponent,
   ],
   imports: [
     BrowserModule,

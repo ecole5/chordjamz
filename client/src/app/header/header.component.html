@@ -6,3 +6,9 @@
 <button (click)="logout()">Logout</button>
 <p>{{status}}</p>
 </div>
+
+
+
+<div *ngIf="username">
+ <user-area>[myUsername] = "username"</user-area>
+</div>

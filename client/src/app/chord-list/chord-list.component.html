@@ -2,7 +2,7 @@
 <div id = "wrapper">
 <h2>Public Chord Sheets</h2>
 <ul>
- <li *ngFor="let chord of chords">
+ <li *ngFor="let chord of chords" (click)="onSelect(chord)">
       {{chord.songName}}
     </li>
 </ul>

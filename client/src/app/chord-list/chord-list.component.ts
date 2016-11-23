@@ -12,9 +12,9 @@ import {ChordService} from '../chord.service';
 })
 export class ChordListComponent implements OnInit{
 
-  getData: string;
 
   chords: Chord[];
+  selectedChord;
 
   constructor(private chordService: ChordService,) { 
   } //will get injected
@@ -25,6 +25,11 @@ export class ChordListComponent implements OnInit{
     this.getChords();
  
   }
+
+  onSelect (chord: Chord): void{
+      this.selectedChord = chord;
+}
+  
 
   getChords(){
     this.chordService.getChords().subscribe(data => this.chords = data); //subscribe to the stream of events (the observable)

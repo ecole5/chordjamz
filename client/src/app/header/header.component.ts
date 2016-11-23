@@ -7,7 +7,7 @@ import { Component} from '@angular/core';
 })
 export class HeaderComponent   {
 
-  username = '';
+  username = 'bob';
   status = 'Please Log In';
 
 
