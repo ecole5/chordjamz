@@ -8,10 +8,7 @@ import { Component, Input } from '@angular/core';
 export class UserAreaComponent  {
 
   @Input()
-  myUsername:String; 
-
-
-
-
+  myUsername;
+  
 
 }
