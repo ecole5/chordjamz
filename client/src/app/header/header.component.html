@@ -1,0 +1,8 @@
+<div id = wrapper>
+<h1>ChordJamz</h1>
+<p>Welcome to ChordJamz, the site for all your chord sheet needs.</p>
+<input #input>
+<button (click)="login(input.value); input.value = '' ">Login</button>
+<button (click)="logout()">Logout</button>
+<p>{{status}}</p>
+</div>
