@@ -1,0 +1,17 @@
+<div id = "wrapper">
+<h2>Edit Chord Sheet</h2>
+<textarea #area>
+</textarea>
+
+<p>
+<button>Submit</button>
+<button (click) = "clear()"> Clear </button>
+</p>
+
+<div *ngIf="clearSelected">
+  <p> Are you sure you want to do this? </p>
+  <button (click) = "clear(); area.value = ''">Confirm</button>
+  <button (click) = "clear();">Cancel</button>
+
+</div>
+</div>
