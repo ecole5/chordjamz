@@ -4,9 +4,15 @@
 </textarea>
 
 <p>
-<button>Submit</button>
+<button (click) = "submit(area.value)"> Submit</button>
 <button (click) = "clear()"> Clear </button>
 </p>
+<ul>
+ <li *ngFor="let error of errors">
+      {{error}}
+    </li>
+</ul>
+ 
 
 <div *ngIf="clearSelected">
   <p> Are you sure you want to do this? </p>
