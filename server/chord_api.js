@@ -23,8 +23,16 @@ router.route('/chord')
 
 .post(function(req, res) {
      var tab = new Tab();      // create a new instance of the Bear model
-        tab.songName = req.body.songName;  // set the bears name (comes from the request)
         tab.content = req.body.content;  // set the bears name (comes from the request)
+        tab.userName = req.body.userName;
+        tab.songName = req.body.songName;
+        tab.version = req.body.save;
+        tab.copyright = true;
+        tab.type = req.body.type;
+      
+        tab.dateModified = new Date ();
+      
+    
 
 
         // save the bear and check for errors

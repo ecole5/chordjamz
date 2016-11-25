@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
+import {ChordService} from '../chord.service';
 
 @Component({
   selector: 'edit-chord',
   templateUrl: './edit-chord.component.html',
-  styleUrls: ['./edit-chord.component.css']
+  styleUrls: ['./edit-chord.component.css'],
+  providers:[ChordService]
 })
 export class EditChordComponent{
 
+
+
   errors = [];
   clearSelected = '';
+
+  constructor(private chordService: ChordService,) { 
+  } 
+
+  
+  
   clear(){
     if (this.clearSelected == ''){
       this.clearSelected = 'xxx';
@@ -134,13 +144,19 @@ else{
 
 //case where no content
 if (titleFound == 0 || startSong == 0){
-      this.errors.push("Error: You must have both a ns and t directive." + i.toString());
+      this.errors.push("Error: You must have both a ns and t directive.");
 }
 } //end of function
 
 
   submit(text){
     this.validateChordPro(text);
+
+    
+
+    this.chordService.createChord(text, "Evan", "1", "Hotel California", true).subscribe(); //subscribe to the stream of events (the observable)
+  
+
 
   } 
 
