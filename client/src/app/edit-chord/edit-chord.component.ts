@@ -146,17 +146,22 @@ else{
 if (titleFound == 0 || startSong == 0){
       this.errors.push("Error: You must have both a ns and t directive.");
 }
+
 } //end of function
 
 
-  submit(text){
+  submit(text, type){
     this.validateChordPro(text);
-
     
+    let tempType;
+    if (type == "Public"){
+      tempType = true;
+    }
+    else{
+      tempType = false;
+    }
 
-    this.chordService.createChord(text, "Evan", "1", "Hotel California", true).subscribe(); //subscribe to the stream of events (the observable)
-  
-
+    this.chordService.createChord(text, "Evan", "10", "Mary Had a little lamp", tempType).subscribe(); //subscribe to the stream of events (the observable)
 
   } 
 

@@ -4,8 +4,16 @@
 </textarea>
 
 <p>
-<button (click) = "submit(area.value)"> Submit</button>
+
+<select #type>
+  <option value="Public">Public</option>
+  <option value="Private">Private</option>
+</select>
+<button (click) = "submit(area.value, type.value)"> Submit</button>
 <button (click) = "clear()"> Clear </button>
+
+
+
 </p>
 <ul>
  <li *ngFor="let error of errors">
