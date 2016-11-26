@@ -18,7 +18,7 @@ router.route('/chord/names')
                 res.send(err);
             
             res.json(tabs);
-      }).where('copyright').equals(true); // MAKE SURE TO CHANGE TO ONLY PUBLIC LATTER
+      }).where('copyright').equals(true).where('type').equals(true); 
 });
 
 
@@ -30,11 +30,11 @@ router.route('/chord')
                 res.send(err);
             
             res.json(tabs);
-      }).where('copyright').equals(true); // MAKE SURE TO CHANGE TO ONLY PUBLIC LATTER
+      }); //Only for devlopment
 
 })
 
-   .delete(function(req, res) { //Wipe the server, be carefull
+   .delete(function(req, res) { //Wipe the server, be carefull, remove after devlopment
       Tab.remove(function(err, tabs) {
             
             if (err)
@@ -50,7 +50,7 @@ router.route('/chord')
 //Return list of song names for a specific user
 router.route('/chord/:userName')
    .get(function(req, res) {
-      Tab.find({'userName':req.params.userName}, {songName: 1, _id: 0},function(err, tabs) {
+      Tab.find({'userName':req.params.userName}, function(err, tabs) {
             
             if (err)
                 res.send(err);
@@ -67,6 +67,7 @@ router.route('/chord/:userName')
         tab.userName = sanitize(req.params.userName);
         tab.songName = sanitize(req.body.songName);
         tab.type = sanitize(req.body.type);
+        tab.valid = sanitize(req.body.valid);
         tab.copyright = true;
  
 
@@ -79,9 +80,6 @@ router.route('/chord/:userName')
             res.json({ message: 'Tab created!' });
         });
 });
-
-
-
 
 
 module.exports = router;

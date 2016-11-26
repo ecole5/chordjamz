@@ -6,8 +6,8 @@
 <p>
 
 <select #type>
-  <option value="Public">Public</option>
-  <option value="Private">Private</option>
+  <option value=true>Public</option>
+  <option value=false>Private</option>
 </select>
 <button (click) = "submit(area.value, type.value)"> Submit</button>
 <button (click) = "clear()"> Clear </button>

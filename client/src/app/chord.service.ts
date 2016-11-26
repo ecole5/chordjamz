@@ -14,13 +14,13 @@ getChords(){
 
 
 
-createChord(content, userName, version, songName, type){
-    var json = JSON.stringify({content: content, userName: userName, version: version, songName: songName, type: type});
+createChord(content, userName, songName, type, valid){
+    var json = JSON.stringify({content: content, songName: songName, type: type, valid: valid});
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
 
 
-    return this.http.post('api/chord/', json,options).map(res => res.json())
+    return this.http.post('api/chord/'+userName, json,options).map(res => res.json())
 }
 
 
