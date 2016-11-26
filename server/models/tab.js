@@ -5,10 +5,11 @@ var TabSchema   = new Schema({
     songName: String,
     content: String,
     userName: String,
-    version: String,
-    dateModified: Date,
     type: Boolean,
     copyright: Boolean
+},
+{
+   timestamps: true 
 });
 
 module.exports = mongoose.model('Tab', TabSchema);

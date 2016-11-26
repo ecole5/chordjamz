@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon app.js" 
+    "server": "nodemon app.js"
   },
   "author": "Evan Cole",
   "license": "ISC",
@@ -14,7 +14,8 @@
     "express": "^4.14.0",
     "mongodb": "^2.2.11",
     "mongoose": "^4.6.8",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "sanitize-html": "^1.13.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
