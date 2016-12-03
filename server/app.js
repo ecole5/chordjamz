@@ -9,6 +9,7 @@ var logger = require('morgan'); // helps log all requests
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://admin:admin@ds159517.mlab.com:59517/guitarjamsdatabase');
 Tab = require('./models/tab');
+User = require('./models/user');
 
 
 var cookieParser = require('cookie-parser'); // for handling cookies
@@ -27,8 +28,11 @@ app.use('/',express.static(__dirname+'/../client/dist'));
 
 
 // Our ReST API
+var api = require('./user_api');
+app.use('/api', api);
 var api = require('./chord_api');
 app.use('/api', api);
+
 
 
 // Function to handle client errors
