@@ -27,12 +27,12 @@ app.use(cookieParser());
 app.use('/',express.static(__dirname+'/../client/dist'));
 
 
+
 // Our ReST API
 var api = require('./user_api');
 app.use('/api', api);
 var api = require('./chord_api');
 app.use('/api', api);
-
 
 
 // Function to handle client errors

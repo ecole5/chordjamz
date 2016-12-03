@@ -7,7 +7,8 @@ var TabSchema   = new Schema({
     userName: String,
     type: Boolean,
     copyright: Boolean,
-    valid: Boolean
+    valid: Boolean,
+    version: Number
 },
 {
    timestamps: true 

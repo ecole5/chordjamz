@@ -8,6 +8,10 @@ import { HeaderComponent } from './header/header.component';
 import { EditChordComponent } from './edit-chord/edit-chord.component';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { ViewChordComponent } from './view-chord/view-chord.component';
+import {RouterModule} from '@angular/router';
+
+
 
 
 @NgModule({
@@ -18,12 +22,23 @@ import { NewUserComponent } from './new-user/new-user.component';
     EditChordComponent,
     UserAreaComponent,
     NewUserComponent,
+    ViewChordComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+      RouterModule.forRoot([
+      {
+        path: 'view/:id',
+        component: ViewChordComponent
+      },
+      {
+        path: 'user_area',
+        component: UserAreaComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

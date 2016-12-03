@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { LoginService } from '../login.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'header',
   templateUrl: './header.component.html',
@@ -12,8 +13,9 @@ export class HeaderComponent implements OnInit   {
   status:string;
   newUserOpen: boolean;
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router) {
   }
+
 
 
  createNewUser(value: string){
@@ -28,6 +30,7 @@ export class HeaderComponent implements OnInit   {
 
 
   login(value: string){
+     
     if (value != ''){
 
     this.loginService.login(value).
@@ -35,6 +38,7 @@ export class HeaderComponent implements OnInit   {
         if (success) {
           this.status = "User Logged In";
           this.username = value;
+           this.router.navigate(['/user_area']);
         }
         else { this.status = "Cannot find user"; }
       },
@@ -56,8 +60,8 @@ export class HeaderComponent implements OnInit   {
   }
 
     ngOnInit(){
-      this.login("Bob"); //***Must be changed to logout for production
       this.newUserOpen = false;
+    
   
   }
 
