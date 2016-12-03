@@ -14,7 +14,7 @@ export class EditChordComponent{
   
 
   errors = [];
-  constructor(private chordService: ChordService,) { 
+  constructor(private chordService: ChordService) { 
   } 
 
   //Clear Button operation

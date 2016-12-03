@@ -10,18 +10,26 @@ function sanitize (text){
 
 
 //Return list of public chord names, where copywrite == true
-router.route('/user/:userName')
+router.route('/user/login/:userName')
     .get(function(req, res) {
       User.find( {'userName':req.params.userName},function(err, user) {
             
             if (err)
                 res.send(err);
             
-            res.json();
+            if (user.length == 1){
+                res.json({message: "ok" });
+            }
+            else{
+                res.json({message: "Not Found"});
+            }
+
       });
-})
+});
+
+router.route('/user/create/:userName')
   
-    .post(function(req, res) {
+    .get(function(req, res) {
      
 
        User.find(function(err, user) {
@@ -36,12 +44,12 @@ router.route('/user/:userName')
                     if (err)
                         res.send(err);
 
-                    res.json({ message: 'User Created' });
+                    res.json({ message: "ok" });
         });
             }
             else{
         
-                res.json({messege: 'Invalid Name'});
+                res.json({message:"fail"});
             }
         
 

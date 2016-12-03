@@ -4,8 +4,16 @@
 <input #input>
 <button (click)="login(input.value); input.value = '' ">Login</button>
 <button (click)="logout()">Logout</button>
+<button (click)="createNewUser()">Create Account</button>
 <p>{{status}}</p>
+
+
+<div *ngIf="newUserOpen">
+ <new-user (onCreated) = "closeNewUser()"></new-user>
 </div>
+</div>
+
+
 
 
 

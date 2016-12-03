@@ -7,6 +7,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { HeaderComponent } from './header/header.component';
 import { EditChordComponent } from './edit-chord/edit-chord.component';
 import { UserAreaComponent } from './user-area/user-area.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { UserAreaComponent } from './user-area/user-area.component';
     HeaderComponent,
     EditChordComponent,
     UserAreaComponent,
+    NewUserComponent,
   ],
   imports: [
     BrowserModule,

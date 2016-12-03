@@ -25,11 +25,6 @@ createChord(content, userName, songName, type, valid){
 
 
 
-
-
-
-
-
-
-
 }
+
+
