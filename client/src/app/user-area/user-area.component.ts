@@ -12,12 +12,14 @@ export class UserAreaComponent implements OnInit  {
 
   selectedChord:string;
   edit: boolean;
+  new: boolean;
   constructor() { }
 
   
   ngOnInit() {
     this.selectedChord = "";
     this.edit = false;
+    this.new = false;
   }
 
 
@@ -26,14 +28,23 @@ export class UserAreaComponent implements OnInit  {
    
   }
 
+  createNew(){
+    this.new = true;
+    this.selectedChord = "x";
+  }
+
   navigation(command){
     if (command == "back"){
+      this.selectedChord = "";
+    }
+    else if (command == "editback"){
+      this.edit = false;
+      this.new = false;
       this.selectedChord = "";
     }
     else{
       this.edit = true;
     }
   }
-   
 
 }

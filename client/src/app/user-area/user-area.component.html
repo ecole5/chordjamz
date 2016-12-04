@@ -1,5 +1,6 @@
 <div id = "wrapper">
 <h2>Welcome {{myUsername}} to the user area </h2>
+<button (click)="createNew()">New Chord</button>
 
 
  <div *ngIf="selectedChord==false">
@@ -8,16 +9,21 @@
  </div>
 
 
- <div *ngIf="selectedChord && edit==false">
+ <div *ngIf="selectedChord && edit==false && new==false">
        <view-chord [chordName] = "selectedChord"> </view-chord>
   <user-control-bar (change) = "navigation($event)"></user-control-bar>
 
  </div>
 
+ 
+ <div *ngIf="new">
+ <edit-chord [myUsername] = "myUsername" (doneEdit) = "navigation($event)"></edit-chord>
+ </div>
+
 
  
  <div *ngIf="edit">
-  <edit-chord [myUsername] = "myUsername" [currentChordName]= "selectedChord"></edit-chord>
+  <edit-chord [myUsername] = "myUsername" [currentChordName]= "selectedChord" (doneEdit) = "navigation($event)"></edit-chord>
  </div>
  
  

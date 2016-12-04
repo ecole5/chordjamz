@@ -7,11 +7,16 @@
 <p>
 
 <select #type>
+  <option selected hidden>Select Visibility</option>
   <option value=true>Public</option>
   <option value=false>Private</option>
 </select>
+
 <button (click) = "submit(area.value, type.value)"> Submit</button>
 <button (click) = "clear()"> Clear </button>
+<button (click) = "delete()"> Delete </button>
+<button (click) = "back()"> Back </button>
+
 
 
 

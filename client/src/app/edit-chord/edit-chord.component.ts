@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {ChordService} from '../chord.service';
 import {Chord} from '../chord';
 
@@ -12,7 +12,8 @@ export class EditChordComponent implements OnInit{
 
   @Input() myUsername;
   @Input() currentChordName;
- 
+  
+  @Output() doneEdit = new EventEmitter<string>();
   previousText: String;
   oldChord: Chord[];
 
@@ -34,6 +35,21 @@ export class EditChordComponent implements OnInit{
 
   fillForm(){
     this.previousText = this.oldChord[0].content;
+    
+  }
+
+
+  delete(){
+    if (this.currentChordName != "") //wont update server if you delete new
+    {    this.chordService.deleteChord(this.currentChordName).subscribe();
+      }
+
+    this.back();
+
+  }
+
+  back(){
+    this.doneEdit.emit("editback");
 
   }
 
@@ -226,6 +242,12 @@ if (titleFound == 0 || startSong == 0){
       errorFound = true;
 }
 
+//Determain if submited visibility
+if (type == "Select Visibility"){
+   this.errors.push("Error: You must select a visibility.");
+     errorFound = true;
+}
+
 //Build the submission to the server if reequired
 
 if (errorFound){
@@ -236,6 +258,7 @@ else{ //will build a query
   if(warningFound){
     this.errors.push("Chord will not display until warnings are fixed.");
   }
+
 
   //Determain if update or if new
   if (this.currentChordName == ""){
