@@ -10,6 +10,10 @@ getPublicNames(){
     return this.http.get('api/chord/public').map(res=> res.json());
 }
 
+getPrivateNames(username){
+    return this.http.get('api/chord/private/' + username).map(res=> res.json());
+}
+
 
 createChord(content, userName, songName, type, valid){
     var json = JSON.stringify({content: content, userName: userName, type: type, valid: valid});

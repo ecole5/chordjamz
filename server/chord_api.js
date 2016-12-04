@@ -8,7 +8,7 @@ function sanitize (text){
     return  sanitizer(text,{allowedTags: [],allowedAttributes: []});
 }
 
-
+//return all public chords
 router.route('/chord/public')
     .get(function(req, res) {
       Tab.find({'copyright':true,'type': true},function(err, tabs) {
@@ -21,22 +21,19 @@ router.route('/chord/public')
 });
 
 
-
+//Return all chords with that username
 router.route('/chord/private/:userName')
     .get(function(req, res) {
-      Tab.find.distinct({songName: 1, _id: 0},function(err, tabs) {
+      Tab.find({'userName': req.params.userName},function(err, tabs) {
             
             if (err)
                 res.send(err);
-            
+                
             res.json(tabs);
-      }).where('copyright').equals(true).where('type');
+      });
 });
 
 
-
-
-//Return list of song names for a specific user
 router.route('/chord/:songName')
 
     //Return the song
@@ -51,7 +48,7 @@ router.route('/chord/:songName')
 })
 
 
-//Create a new song update
+//Create a new song 
 .post(function(req, res) {
      var tab = new Tab();
        
@@ -82,6 +79,7 @@ router.route('/chord/:songName')
             
         tab.content = sanitize(req.body.content); 
         tab.type = sanitize(req.body.type);
+        tab.songName = req.params.songName;
         tab.valid = sanitize(req.body.valid);  
         tab.version = tab.version +1;
 
@@ -105,7 +103,7 @@ router.route('/chord/:songName')
                 res.send(err);
             
             res.json(tabs);
-      }).where('userName').equals(req.params.userName);
+      }).where('userName').equals(req.params.songName);
 
 });
 

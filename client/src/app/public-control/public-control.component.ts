@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicControlComponent implements OnInit {
 
+
+  selectedChord;
   constructor() { }
 
   ngOnInit() {
+    this.selectedChord = "" 
   }
+
+
+  chordSelected(name){
+    this.selectedChord = name;
+  }
+
 
 }

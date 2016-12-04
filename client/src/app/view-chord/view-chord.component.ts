@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'view-chord',
@@ -10,7 +10,7 @@ export class ViewChordComponent implements OnInit {
 
   constructor() { }
 
-
+  @Input() chordname;
 
 
 
