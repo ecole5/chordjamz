@@ -1,12 +1,6 @@
 // Handling the chord_api
 var express = require('express');
 var router = express.Router();
-var sanitizer = require ('sanitize-html');
-
-//Fix the sanitizer to not allow any tags
-function sanitize (text){
-    return  sanitizer(text,{allowedTags: [],allowedAttributes: []});
-}
 
 //return all public chords
 router.route('/chord/public')
@@ -103,7 +97,7 @@ router.route('/chord/:songName')
                 res.send(err);
             
             res.json(tabs);
-      }).where('userName').equals(req.params.songName);
+      }).where('songName').equals(req.params.songName);
 
 });
 
