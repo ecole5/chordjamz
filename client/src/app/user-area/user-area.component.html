@@ -8,8 +8,12 @@
  </div>
 
 
- <div *ngIf="selectedChord">
+ <div *ngIf="selectedChord && edit==false">
+  <user-control-bar (change) = "navigation($event)"></user-control-bar>
   <view-chord [chordName] = "selectedChord"> </view-chord>
  </div>
+
+
+ 
 
  </div>

@@ -13,7 +13,6 @@ export class PublicControlBarComponent {
 
      clickBack() {
        this.back.emit();
-   
        
     }
 

@@ -27,7 +27,12 @@ export class UserAreaComponent implements OnInit  {
   }
 
   navigation(command){
-    
+    if (command == "back"){
+      this.selectedChord = "";
+    }
+    else{
+      this.edit = true;
+    }
   }
    
 
