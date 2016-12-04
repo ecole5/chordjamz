@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 
 
 
@@ -7,10 +7,28 @@ import { Component, Input } from '@angular/core';
   templateUrl: './user-area.component.html',
   styleUrls: ['./user-area.component.css']
 })
-export class UserAreaComponent  {
-  @Input()
-  myUsername;
+export class UserAreaComponent implements OnInit  {
+  @Input() myUsername;
 
+  selectedChord:string;
+  edit: boolean;
+  constructor() { }
+
+  
+  ngOnInit() {
+    this.selectedChord = "";
+    this.edit = false;
+  }
+
+
+  chordSelected(name){
+    this.selectedChord = name;
+   
+  }
+
+  navigation(command){
+    
+  }
    
 
 }

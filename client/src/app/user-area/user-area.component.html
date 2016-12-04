@@ -1,3 +1,15 @@
 <div id = "wrapper">
-<h2>Welcome {{myUsername}} </h2>
-</div>
+<h2>Welcome {{myUsername}} to the user area </h2>
+
+
+ <div *ngIf="selectedChord==false">
+  <chord-list (select) = "chordSelected($event)" [username] = "myUsername" >
+  </chord-list>
+ </div>
+
+
+ <div *ngIf="selectedChord">
+  <view-chord [chordName] = "selectedChord"> </view-chord>
+ </div>
+
+ </div>

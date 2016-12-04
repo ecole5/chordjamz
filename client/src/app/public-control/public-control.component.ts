@@ -12,7 +12,7 @@ export class PublicControlComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.selectedChord = "" 
+    this.selectedChord = "";
   }
 
 
