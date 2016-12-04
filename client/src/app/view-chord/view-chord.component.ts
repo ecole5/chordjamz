@@ -35,6 +35,7 @@ display(){
     if (this.chord[0].valid) { 
   
       this.content = this.chordpro.format(this.chord[0].content).html; //parse chordpro to html using chordpro format
+      console.log(this.content);
     }
     else { //warning
       this.content = "<p>This chord file contained a warning, so it was not displayed</p>";

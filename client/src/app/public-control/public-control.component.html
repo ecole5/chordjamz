@@ -9,8 +9,9 @@
 
 
  <div *ngIf="selectedChord">
+    <view-chord [chordName] = "selectedChord"> </view-chord>
   <public-control-bar (back) = "goBack($event)"></public-control-bar>
-  <view-chord [chordName] = "selectedChord"> </view-chord>
+
  </div>
 
 

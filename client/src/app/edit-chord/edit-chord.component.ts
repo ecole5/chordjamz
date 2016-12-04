@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {ChordService} from '../chord.service';
+import {Chord} from '../chord';
 
 @Component({
   selector: 'edit-chord',
@@ -11,6 +12,9 @@ export class EditChordComponent implements OnInit{
 
   @Input() myUsername;
   @Input() currentChordName;
+ 
+  previousText: String;
+  oldChord: Chord[];
 
   errors = [];
   constructor(private chordService: ChordService) {
@@ -21,13 +25,15 @@ export class EditChordComponent implements OnInit{
 
   ngOnInit(){
     if (this.currentChordName != ""){
-       //get chord and pass to fill form
+       this.chordService.getChord(this.currentChordName).subscribe(data => this.oldChord = data, error => this.previousText = "Could not load chord for editing",()=> this.fillForm());
+
     }
     
     
   }
 
   fillForm(){
+    this.previousText = this.oldChord[0].content;
 
   }
 
@@ -236,7 +242,7 @@ else{ //will build a query
     this.chordService.createChord(text, this.myUsername, songName, type, !warningFound).subscribe(); //subscribe to the observale
   }
   else{
-      this.chordService.updateChord(text, songName, type, !warningFound).subscribe(); 
+      this.chordService.updateChord(text, this.currentChordName, songName, type, !warningFound).subscribe(); 
   }
   
   this.errors.push("Chord saved.")

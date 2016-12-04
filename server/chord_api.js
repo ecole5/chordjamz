@@ -52,11 +52,11 @@ router.route('/chord/:songName')
 .post(function(req, res) {
      var tab = new Tab();
        
-        tab.content = sanitize(req.body.content); 
-        tab.userName = sanitize(req.body.userName);
-        tab.songName = sanitize(req.params.songName);
-        tab.type = sanitize(req.body.type);
-        tab.valid = sanitize(req.body.valid);       
+        tab.content = req.body.content; 
+        tab.userName = req.body.userName;
+        tab.songName = req.params.songName;
+        tab.type = req.body.type;
+        tab.valid = req.body.valid;       
         tab.copyright = true;
         tab.version = 1;
 
@@ -77,10 +77,10 @@ router.route('/chord/:songName')
             if (err)
                 res.send(err);
             
-        tab.content = sanitize(req.body.content); 
-        tab.type = sanitize(req.body.type);
-        tab.songName = req.params.songName;
-        tab.valid = sanitize(req.body.valid);  
+        tab.content = req.body.content; 
+        tab.type = req.body.type;
+        tab.songName = req.body.songName;
+        tab.valid = req.body.valid;  
         tab.version = tab.version +1;
 
             tab.save(function(err) {

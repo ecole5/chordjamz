@@ -27,13 +27,13 @@ createChord(content, userName, songName, type, valid){
 }
 
 
-updateChord(content, songName, type, valid){
-    var json = JSON.stringify({content: content, type: type, valid: valid});
+updateChord(content, originalName, songName, type, valid){
+    var json = JSON.stringify({content: content, songName: songName, type: type, valid: valid});
     let headers = new Headers({ 'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
 
 
-    return this.http.put('api/chord/'+songName, json,options).map(res => res.json())
+    return this.http.put('api/chord/'+originalName, json,options).map(res => res.json())
 }
 
 
