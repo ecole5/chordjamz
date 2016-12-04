@@ -9,36 +9,31 @@ import { EditChordComponent } from './edit-chord/edit-chord.component';
 import { UserAreaComponent } from './user-area/user-area.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { ViewChordComponent } from './view-chord/view-chord.component';
-import {RouterModule} from '@angular/router';
-
-
+import { AccountControlComponent } from './account-control/account-control.component';
+import { UserControlBarComponent } from './user-control-bar/user-control-bar.component';
+import { PublicControlBarComponent } from './public-control-bar/public-control-bar.component';
+import { PublicControlComponent } from './public-control/public-control.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ChordListComponent,
-    HeaderComponent,
     EditChordComponent,
     UserAreaComponent,
     NewUserComponent,
     ViewChordComponent,
+    AccountControlComponent,
+    UserControlBarComponent,
+    PublicControlBarComponent,
+    PublicControlComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule,
-      RouterModule.forRoot([
-      {
-        path: 'view/:id',
-        component: ViewChordComponent
-      },
-      {
-        path: 'user_area',
-        component: UserAreaComponent
-      }
-    ])
+    JsonpModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

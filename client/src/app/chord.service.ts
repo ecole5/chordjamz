@@ -11,7 +11,6 @@ getPublicNames(){
 }
 
 
-
 createChord(content, userName, songName, type, valid){
     var json = JSON.stringify({content: content, userName: userName, type: type, valid: valid});
     let headers = new Headers({ 'Content-Type': 'application/json'});

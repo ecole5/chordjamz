@@ -1,6 +1,9 @@
-
 export class Chord{
-  content: string;
-  songName: string;
-
+    songName: String;
+    content: String;
+    userName: String;
+    type: Boolean;
+    copyright: Boolean;
+    valid: Boolean;
+  
 }

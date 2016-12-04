@@ -13,6 +13,10 @@
 </div>
 </div>
 
+<!--Open a user area if nessasary-->
+ <div *ngIf="username">
+  <user-area [myUsername] = "username"></user-area>
+ </div>
 
 
 
