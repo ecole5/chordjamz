@@ -1,1 +1,18 @@
+ul{
+    list-style: none;
+    list-style-position:inside;
+    margin: 0%;
+    margin-right: 5%;
+    padding:0; 
+  
+}
+
+li{
+    padding: 0.5%;
+    background-color: grey;
+    margin-bottom: 1%;
+    width: 5%;
+}
+
+
 

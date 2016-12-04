@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'public-control-bar',
   templateUrl: './public-control-bar.component.html',
   styleUrls: ['./public-control-bar.component.css']
 })
-export class PublicControlBarComponent implements OnInit {
+export class PublicControlBarComponent {
+  @Output() back = new EventEmitter<void>();
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+
+
+     clickBack() {
+       this.back.emit();
+   
+       
+    }
+
+     
 
 }

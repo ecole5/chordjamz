@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Rx';
+import {Chord} from './chord';
 
 @Injectable()
 export class ChordService {
@@ -38,6 +40,8 @@ updateChord(content, songName, type, valid){
 getChord(songName){
     return this.http.get('api/chord/'+songName).map(res => res.json())
 }
+
+
 
 
 deleteChord(songName){

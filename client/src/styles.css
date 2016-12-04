@@ -1,5 +1,9 @@
 #wrapper{
     background-color: #e6e6e6;
-    padding: 1%;;
-    margin-bottom: 3%
+    padding: 1.5%;
+    margin-bottom: 3%;
+    width: 100%;
+}
+body {
+  margin: 0px;
 }

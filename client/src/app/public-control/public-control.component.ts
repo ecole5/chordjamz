@@ -18,6 +18,15 @@ export class PublicControlComponent implements OnInit {
 
   chordSelected(name){
     this.selectedChord = name;
+   
+  }
+
+  goBack(){
+    this.selectedChord = "";
+  }
+
+  goReport(){
+    console.log("start report");
   }
 
 

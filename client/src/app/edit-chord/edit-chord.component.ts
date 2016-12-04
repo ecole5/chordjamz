@@ -12,11 +12,6 @@ export class EditChordComponent{
   @Input()
   myUsername;
 
-  chordpro = require("chordprojs");
-
-  util = require("util");
-  
-
   errors = [];
   constructor(private chordService: ChordService) { 
   } 
@@ -216,9 +211,11 @@ if (errorFound){
   this.errors.push("Chord will not be saved, please correct the errors.");
 }
 else{ //will build a query
-  console.log("Made it this far");
-  if(warningFound){this.errors.push("Chord will not display until warnings are fixed.")}
-  console.log(this.chordpro.format(text).html);
+  
+  if(warningFound){
+    this.errors.push("Chord will not display until warnings are fixed.");
+  }
+
   
   this.chordService.createChord(text, this.myUsername, songName, type, !warningFound).subscribe(); //subscribe to the observale
   this.errors.push("Chord saved.")
