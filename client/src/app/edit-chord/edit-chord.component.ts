@@ -88,7 +88,7 @@ submit(text, type){
         if (currentLine == "{ns}" || currentLine == "{new_song}"){
            startSong++;
            if (startSong > 1) {
-                this.errors.push("Warning: More than one new song is not alowed. See line: " + i.toString()); 
+                this.errors.push("Warning: More than one new song is not alowed. See line: " + (i+1).toString()); 
                 warningFound = true;
               
            }
@@ -97,13 +97,13 @@ submit(text, type){
         else if (currentLine.indexOf("t") == 1 || currentLine.indexOf("title") == 1 ){
     
                   if (currentLine.indexOf(":") == -1 || currentLine[currentLine.indexOf(":") + 1] == "}"){
-                     this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + i.toString());
+                     this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + (i+1).toString());
                      errorFound = true;
             }
             titleFound++;
             songName = currentLine.substring(currentLine.indexOf(":")+1,currentLine.length-1); //get song name
             if (titleFound > 1){
-               this.errors.push("Error: More than one title directive. See line: " + i.toString()); 
+               this.errors.push("Error: More than one title directive. See line: " + (i+1).toString()); 
                errorFound = true;
 
             }
@@ -111,21 +111,21 @@ submit(text, type){
         }
         else if (currentLine.indexOf("st") == 1 || currentLine.indexOf("subtitle") == 1 ){
                  if (currentLine.indexOf(":") == -1 || currentLine[currentLine.indexOf(":") + 1] == "}"){
-              this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + i.toString());
+              this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + (i+1).toString());
               errorFound = true;
             }
 
         }
         else if (currentLine.indexOf("c") == 1 || currentLine.indexOf("comment") == 1 ){
                 if (currentLine.indexOf(":") == -1 || currentLine[currentLine.indexOf(":") + 1] == "}"){
-               this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + i.toString());
+               this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + (i+1).toString());
                errorFound = true;
             }
 
         }
         else if (currentLine.indexOf("define") == 1){
              if (currentLine.indexOf(":") == -1 || currentLine[currentLine.indexOf(":") + 1] == "}"){
-              this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + i.toString()); 
+              this.errors.push("Error: Missing seperator or text after sepeator or misspled directive: " + (i+1).toString()); 
               errorFound = true;
             }
             //Define specific directive shit
@@ -168,39 +168,39 @@ submit(text, type){
 
               if (!checkpart1) {
                 warningFound = true;
-                 this.errors.push("Warning: name paramater for define directive does not start with uppercase letter A-G or contains bad spacing. See line: " + i.toString()); 
+                 this.errors.push("Warning: name paramater for define directive does not start with uppercase letter A-G or contains bad spacing. See line: " + (i+1).toString()); 
               }
               else if (checkpart2) {
                warningFound = true;
-                 this.errors.push("Warning: code paramter for define directivie is not exactly 6 characters long or contains characters other than X or x and 0-9. See line: " + i.toString()); 
+                 this.errors.push("Warning: code paramter for define directivie is not exactly 6 characters long or contains characters other than X or x and 0-9. See line: " + (i+1).toString()); 
               }
 
 
         }
         else if (currentLine.indexOf("soc") > -1 || currentLine.indexOf("start_of_chorus") > -1){
           if (currentLine != "{soc}" || currentLine != "{start_of_chorus}"){
-            this.errors.push("Error: The directive has some extra characters : " + i.toString()); 
+            this.errors.push("Error: The directive has some extra characters : " + (i+1).toString()); 
             errorFound = true;
           }
              
         }
          else if (currentLine.indexOf("eoc") > -1 || currentLine.indexOf("end_of_chorus") > -1){
           if (currentLine != "{eoc}" || currentLine != "{end_of_chorus}"){
-            this.errors.push("Error: The directive has some extra characters : " + i.toString());
+            this.errors.push("Error: The directive has some extra characters : " + (i+1).toString());
             errorFound = true; 
           }
              
         }
         else if (currentLine.indexOf("eot") > -1 || currentLine.indexOf("end_of_tab") > -1){
           if (currentLine != "{eot}" || currentLine != "{end_of_tab}"){
-            this.errors.push("Error: The directive has some extra characters : " + i.toString()); 
+            this.errors.push("Error: The directive has some extra characters : " + (i+1).toString()); 
             errorFound = true;
           }
              
         }
          else if (currentLine.indexOf("sot") > -1 || currentLine.indexOf("start_of_tab") > -1){
           if (currentLine != "{sot}" || currentLine != "{start_of_tab}"){
-            this.errors.push("Error: The directive has some extra characters : " + i.toString()); 
+            this.errors.push("Error: The directive has some extra characters : " + (i+1).toString()); 
             errorFound = true;
           }
              
@@ -208,7 +208,7 @@ submit(text, type){
         
        
         else{
-             this.errors.push("Warning: Undefined directive on line: " + i.toString()); 
+             this.errors.push("Warning: Undefined directive on line: " + (i+1).toString()); 
              warningFound = true;
         }
         
@@ -216,7 +216,7 @@ submit(text, type){
       
       } //end of individual directive problems
       else {
-        this.errors.push("Error: Brace Mismatch on line: " + i.toString()); 
+        this.errors.push("Error: Brace Mismatch on line: " + (i+1).toString()); 
         errorFound = true;
       }
     }//end of possible directive detection
@@ -225,7 +225,7 @@ submit(text, type){
 
 else{
   if (titleFound == 0 || startSong == 0){
-     this.errors.push("Error: You must have both a ns and t directive before starting lyrics. See line: " + i.toString());
+     this.errors.push("Error: You must have both a ns and t directive before starting lyrics. See line: " + (i+1).toString());
      errorFound = true;
 
 
@@ -269,6 +269,7 @@ else{ //will build a query
   }
   
   this.errors.push("Chord saved.")
+  setTimeout(() => { this.back(); }, 1000);
   
 }//end of submit
 

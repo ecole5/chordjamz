@@ -61,6 +61,7 @@ export class AccountControlComponent implements OnInit   {
 
     ngOnInit(){
       this.newUserOpen = false;
+      this.login("Bob"); ///remove at production
     
   
   }

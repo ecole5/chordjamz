@@ -36,7 +36,7 @@ export class NewUserComponent {
         subscribe(success => {
           if (success) { //on sucsses
             this.feedback = "You may login now.";
-            setTimeout(() => { this.onCreated.emit(true); }, 2000); //=> is really important (will create even in 2 sec so that parent may remove)
+            setTimeout(() => { this.onCreated.emit(true); }, 1000); //=> is really important (will create even in 2 sec so that parent may remove)
           }
           else { this.feedback = "Username already exsists."; }
         },

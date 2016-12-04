@@ -5,5 +5,7 @@ export class Chord{
     type: Boolean;
     copyright: Boolean;
     valid: Boolean;
+    version: Number;
+    updatedAt: String;
   
 }
