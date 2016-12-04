@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {ChordService} from '../chord.service';
 
 @Component({
@@ -7,14 +7,29 @@ import {ChordService} from '../chord.service';
   styleUrls: ['./edit-chord.component.css'],
   providers:[ChordService]
 })
-export class EditChordComponent{
+export class EditChordComponent implements OnInit{
 
-  @Input()
-  myUsername;
+  @Input() myUsername;
+  @Input() currentChordName;
 
   errors = [];
-  constructor(private chordService: ChordService) { 
+  constructor(private chordService: ChordService) {
+    this.currentChordName = "";
+
+    
   } 
+
+  ngOnInit(){
+    if (this.currentChordName != ""){
+       //get chord and pass to fill form
+    }
+    
+    
+  }
+
+  fillForm(){
+
+  }
 
   //Clear Button operation
   clearSelected = '';
@@ -216,8 +231,14 @@ else{ //will build a query
     this.errors.push("Chord will not display until warnings are fixed.");
   }
 
+  //Determain if update or if new
+  if (this.currentChordName == ""){
+    this.chordService.createChord(text, this.myUsername, songName, type, !warningFound).subscribe(); //subscribe to the observale
+  }
+  else{
+      this.chordService.updateChord(text, songName, type, !warningFound).subscribe(); 
+  }
   
-  this.chordService.createChord(text, this.myUsername, songName, type, !warningFound).subscribe(); //subscribe to the observale
   this.errors.push("Chord saved.")
   
 }//end of submit
