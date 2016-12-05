@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [Title]
 })
 export class AppComponent implements OnInit {
   privacy: boolean;
   dcma: boolean;
 
-
+public constructor(private titleService: Title){}
 
     ngOnInit(){
   this.privacy = false;
    this.dcma = false;
+    this.titleService.setTitle("ChordJamz");
 
 }
 
