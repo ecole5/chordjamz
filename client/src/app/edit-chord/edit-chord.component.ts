@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {ChordService} from '../services/chord.service';
-import {Chord} from '../chord';
+import {Chord} from '../models/chord';
 
 @Component({
   selector: 'edit-chord',
