@@ -1,7 +1,7 @@
-var mongoose     = require('mongoose');
-var Schema       = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var TabSchema   = new Schema({
+var TabSchema = new Schema({
     songName: String,
     content: String,
     userName: String,
@@ -10,8 +10,8 @@ var TabSchema   = new Schema({
     valid: Boolean,
     version: Number
 },
-{
-   timestamps: true 
-});
+    {
+        timestamps: true
+    });
 
 module.exports = mongoose.model('Tab', TabSchema);
