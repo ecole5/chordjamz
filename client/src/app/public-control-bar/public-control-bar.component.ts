@@ -7,6 +7,7 @@ import { Component, Output, EventEmitter} from '@angular/core';
 })
 export class PublicControlBarComponent {
   @Output() back = new EventEmitter<void>();
+    @Output() openNotice = new EventEmitter<void>();
 
 
 
@@ -15,6 +16,12 @@ export class PublicControlBarComponent {
        this.back.emit();
        
     }
+
+     clickReport() {
+       this.openNotice.emit();
+       
+    }
+
 
      
 

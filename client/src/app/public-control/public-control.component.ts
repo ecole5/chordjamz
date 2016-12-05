@@ -9,6 +9,7 @@ export class PublicControlComponent implements OnInit {
 
 
   selectedChord;
+  report:boolean;
   constructor() { }
 
   ngOnInit() {
@@ -25,9 +26,13 @@ export class PublicControlComponent implements OnInit {
     this.selectedChord = "";
   }
 
-  goReport(){
-    console.log("start report");
+  openReport(){
+    this.report = true;
   }
+  closeReport(){
+    this.report = false;
+  }
+
 
 
 }

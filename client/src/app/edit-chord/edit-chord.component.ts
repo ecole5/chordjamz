@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import {ChordService} from '../chord.service';
+import {ChordService} from '../services/chord.service';
 import {Chord} from '../chord';
 
 @Component({

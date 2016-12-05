@@ -12,6 +12,7 @@ import { AccountControlComponent } from './account-control/account-control.compo
 import { UserControlBarComponent } from './user-control-bar/user-control-bar.component';
 import { PublicControlBarComponent } from './public-control-bar/public-control-bar.component';
 import { PublicControlComponent } from './public-control/public-control.component';
+import { DmcaNoticeComponent } from './dmca-notice/dmca-notice.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PublicControlComponent } from './public-control/public-control.componen
     UserControlBarComponent,
     PublicControlBarComponent,
     PublicControlComponent,
+    DmcaNoticeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ChordService } from '../chord.service';
-import { Chord } from '../chord';
+import { ChordService } from '../services/chord.service';
+import { Chord } from '../models/chord';
 
 @Component({
   selector: 'view-chord',

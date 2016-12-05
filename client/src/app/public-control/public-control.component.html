@@ -10,7 +10,13 @@
 
  <div *ngIf="selectedChord">
     <view-chord [chordName] = "selectedChord"> </view-chord>
-  <public-control-bar (back) = "goBack($event)"></public-control-bar>
+  <public-control-bar (back) = "goBack($event)" (openNotice) = "openReport($event)"></public-control-bar>
+
+ </div>
+
+ <div *ngIf="report">
+    <dmca-notice [chordName] = "selectedChord" (closeNotice) = "closeReport($event)" > </dmca-notice>
+ 
 
  </div>
 
