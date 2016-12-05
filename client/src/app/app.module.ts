@@ -13,6 +13,7 @@ import { UserControlBarComponent } from './user-control-bar/user-control-bar.com
 import { PublicControlBarComponent } from './public-control-bar/public-control-bar.component';
 import { PublicControlComponent } from './public-control/public-control.component';
 import { DmcaNoticeComponent } from './dmca-notice/dmca-notice.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { DmcaNoticeComponent } from './dmca-notice/dmca-notice.component';
     PublicControlBarComponent,
     PublicControlComponent,
     DmcaNoticeComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

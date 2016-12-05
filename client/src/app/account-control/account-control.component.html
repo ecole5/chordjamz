@@ -7,7 +7,7 @@
 <button (click)="createNewUser()">Create Account</button>
 <p>{{status}}</p>
 
-
+<!--New user form open/close control -->
 <div *ngIf="newUserOpen">
  <new-user (onCreated) = "closeNewUser()"></new-user>
 </div>
@@ -17,6 +17,13 @@
  <div *ngIf="username">
   <user-area [myUsername] = "username"></user-area>
  </div>
+
+ <!--Admin panel control -->
+ <div *ngIf="admin">
+  <admin-panel></admin-panel>
+ </div>
+
+
 
 
 

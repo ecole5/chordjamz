@@ -41,14 +41,9 @@ getChord(songName){
     return this.http.get('api/chord/'+songName).map(res => res.json())
 }
 
-
-
-
 deleteChord(songName){
     return this.http.delete('api/chord/'+songName).map(res => res.json())
 }
-
-
 
 
 }
