@@ -1,3 +1,16 @@
 <div id = "wrapper">
   <h2>Admin Panel</h2>
+
+
+
+<h2>Notices</h2>
+<ul>
+ <li *ngFor="let notice of notices" (click)="onSelect(notice)">
+      <h3>{{notice.songName}}</h3>
+      <p>{{notice.content}}</p>
+    </li>
+</ul>
+
+
+
   </div>
