@@ -3,7 +3,8 @@ var Schema = mongoose.Schema;
 
 var NoticeSchema = new Schema({
     songName: String,
-    content: String
+    content: String,
+    copyright: String
 
 });
 

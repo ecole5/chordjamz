@@ -10,12 +10,23 @@ export class PublicControlComponent implements OnInit {
 
   selectedChord;
   report:boolean;
+  refresh:boolean;
+
   constructor() { }
 
   ngOnInit() {
     this.selectedChord = "";
+    this.refresh = true;
   }
 
+  reset(){
+         
+    this.refresh = false;
+   
+    setTimeout(() => { this.refresh = true;}, 30); 
+ 
+    
+  }
 
   chordSelected(name){
     this.selectedChord = name;

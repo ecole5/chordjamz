@@ -1,20 +1,22 @@
 <div id = "wrapper">
 
 <h2>Public Area</h2>
+<button (click)="reset()">Refresh</button>
 
- <div *ngIf="selectedChord==false">
+
+ <div *ngIf="selectedChord==false && refresh">
   <chord-list (select) = "chordSelected($event)" >
   </chord-list>
  </div>
 
 
- <div *ngIf="selectedChord">
+ <div *ngIf="selectedChord && refresh">
     <view-chord [chordName] = "selectedChord"> </view-chord>
   <public-control-bar (back) = "goBack($event)" (openNotice) = "openReport($event)"></public-control-bar>
 
  </div>
 
- <div *ngIf="report">
+ <div *ngIf="report && refresh">
     <dmca-notice [chordName] = "selectedChord" (closeNotice) = "closeReport($event)" > </dmca-notice>
  
 

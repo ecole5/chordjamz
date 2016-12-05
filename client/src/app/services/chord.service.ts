@@ -16,6 +16,16 @@ getPrivateNames(username){
     return this.http.get('api/chord/private/' + username).map(res=> res.json());
 }
 
+toggleVisibility(songName){
+    var json = JSON.stringify({});
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+
+
+    return this.http.put('api/chord/dmca/'+ songName, json,options).map(res => res.json())
+}
+
+
 
 createChord(content, userName, songName, type, valid){
     var json = JSON.stringify({content: content, userName: userName, type: type, valid: valid});

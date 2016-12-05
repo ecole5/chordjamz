@@ -20,6 +20,15 @@ export class DmcaService {
   getNotice() {
     return this.http.get('api/notice/').map(res => res.json());
   }
+  toggleNotice(songName){
+    var json = JSON.stringify({});
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+
+
+    return this.http.put('api/notice/'+songName, json,options).map(res => res.json())
+}
+
 
 
 

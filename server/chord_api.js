@@ -101,6 +101,34 @@ router.route('/chord/:songName')
 
     });
 
+    router.route('/chord/dmca/:songName')
+      .put(function (req, res) {
+        //Update the information of one of the tabs
+        Tab.findOne({ 'songName': req.params.songName }, function (err, tab) { //need to use find one or deal with the array of json objects
+
+            if (err)
+                res.send(err);
+
+            if (tab.copyright){
+               tab.copyright = false;
+            }
+            else{
+                tab.copyright = true;
+            }
+
+            tab.save(function (err) {
+                if (err)
+                    res.send(err);
+
+                res.json({ message: 'Tab Updated' });
+
+            });
+
+
+        });
+
+    });
+
 
 
 

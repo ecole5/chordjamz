@@ -24,6 +24,7 @@ router.route('/notice/:songName')
 
         notice.content = req.body.content;
         notice.songName = req.params.songName;
+        notice.copyright = "Visable";
 
         // save the tab and check for errors
         notice.save(function (err) {
@@ -31,6 +32,33 @@ router.route('/notice/:songName')
                 res.send(err);
 
             res.json({ message: 'Notice created!' });
+        });
+
+    })
+
+     .put(function (req, res) {
+        //Update the information of one of the tabs
+        Notice.findOne({ 'songName': req.params.songName }, function (err, notice) { //need to use find one or deal with the array of json objects
+
+            if (err)
+                res.send(err);
+
+            if (notice.copyright == "Visable"){
+                notice.copyright = "Hidden";
+            }
+            else{
+                notice.copyright = "Visable";
+            }
+
+            notice.save(function (err) {
+                if (err)
+                    res.send(err);
+
+                res.json({ message: 'Notice Updated' });
+
+            });
+
+
         });
 
     });

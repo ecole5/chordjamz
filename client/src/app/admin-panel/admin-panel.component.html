@@ -5,12 +5,13 @@
 
 <h2>Notices</h2>
 <ul>
- <li *ngFor="let notice of notices" (click)="onSelect(notice)">
-      <h3>{{notice.songName}}</h3>
-      <p>{{notice.content}}</p>
+ <li *ngFor="let notice of notices">
+      <h3>Chord Name: {{notice.songName}}</h3>
+      Messege:{{notice.content}}<br>
+      Status: {{notice.copyright}}<br>
+
+      <button (click)="toggle(notice.songName)">Toggle Status</button>
     </li>
 </ul>
-
-
 
   </div>
