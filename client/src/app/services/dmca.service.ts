@@ -29,6 +29,16 @@ export class DmcaService {
     return this.http.put('api/notice/'+songName, json,options).map(res => res.json())
 }
 
+  updateName(originalSongName,songName){
+    var json = JSON.stringify({songName: songName});
+    let headers = new Headers({ 'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+
+
+    return this.http.put('api/notice/update/'+originalSongName, json,options).map(res => res.json())
+}
+
+
 
 
 

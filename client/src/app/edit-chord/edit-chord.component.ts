@@ -1,12 +1,13 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import {ChordService} from '../services/chord.service';
+import {DmcaService} from '../services/dmca.service';
 import {Chord} from '../models/chord';
 
 @Component({
   selector: 'edit-chord',
   templateUrl: './edit-chord.component.html',
   styleUrls: ['./edit-chord.component.css'],
-  providers:[ChordService]
+  providers:[ChordService, DmcaService]
 })
 export class EditChordComponent implements OnInit{
 
@@ -18,7 +19,7 @@ export class EditChordComponent implements OnInit{
   oldChord: Chord[];
 
   errors = [];
-  constructor(private chordService: ChordService) {
+  constructor(private chordService: ChordService, private dmcaService: DmcaService) {
     this.currentChordName = "";
 
     
@@ -266,6 +267,7 @@ else{ //will build a query
   }
   else{
       this.chordService.updateChord(text, this.currentChordName, songName, type, !warningFound).subscribe(); 
+      this.dmcaService.updateName(this.currentChordName, songName).subscribe(); 
   }
   
   this.errors.push("Chord saved.")

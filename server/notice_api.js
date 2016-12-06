@@ -15,6 +15,31 @@ router.route('/notice')
         });
     });
 
+
+router.route('/notice/update/:songName')
+  .put(function (req, res) {
+     Notice.findOne({ 'songName': req.params.songName }, function (err, notice) { //need to use find one or deal with the array of json objects
+
+            if (err)
+                res.send(err);
+
+            notice.songName = req.body.songName;
+
+            notice.save(function (err) {
+                if (err)
+                    res.send(err);
+
+                res.json({ message: 'Notice Updated' });
+
+            });
+
+
+        });
+
+  });
+
+ 
+
 //Create new notice
 router.route('/notice/:songName')
 
@@ -36,17 +61,17 @@ router.route('/notice/:songName')
 
     })
 
-     .put(function (req, res) {
+    .put(function (req, res) {
         //Update the information of one of the tabs
         Notice.findOne({ 'songName': req.params.songName }, function (err, notice) { //need to use find one or deal with the array of json objects
 
             if (err)
                 res.send(err);
 
-            if (notice.copyright == "Visable"){
+            if (notice.copyright == "Visable") {
                 notice.copyright = "Hidden";
             }
-            else{
+            else {
                 notice.copyright = "Visable";
             }
 

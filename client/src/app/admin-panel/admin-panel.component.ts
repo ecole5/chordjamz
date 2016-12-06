@@ -24,7 +24,6 @@ export class AdminPanelComponent implements OnInit {
   toggle(songName){
     this.dmcaService.toggleNotice(songName).subscribe();
     this.chordService.toggleVisibility(songName).subscribe();
-    console.log("clicked");
     for (let notice of this.notices){
       if (notice.songName == songName){
         if (notice.copyright == "Visable"){
