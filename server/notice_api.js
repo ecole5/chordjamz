@@ -23,6 +23,8 @@ router.route('/notice/update/:songName')
             if (err)
                 res.send(err);
 
+            if (notice){
+                console.log("Cool");
             notice.songName = req.body.songName;
 
             notice.save(function (err) {
@@ -32,7 +34,7 @@ router.route('/notice/update/:songName')
                 res.json({ message: 'Notice Updated' });
 
             });
-
+            }
 
         });
 
