@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -12,33 +12,33 @@ export class AppComponent implements OnInit {
   privacy: boolean;
   dcma: boolean;
 
-public constructor(private titleService: Title){}
+  public constructor(private titleService: Title) { }
 
-    ngOnInit(){
-  this.privacy = false;
-   this.dcma = false;
+  ngOnInit() {
+    this.privacy = false;
+    this.dcma = false;
     this.titleService.setTitle("ChordJamz");
 
-}
+  }
 
-showPrivacy(){
-  if (this.privacy){
-    this.privacy = false;
+  showPrivacy() {
+    if (this.privacy) {
+      this.privacy = false;
+    }
+    else {
+      this.privacy = true;
+    }
   }
-  else{
-    this.privacy = true;
-  }
-}
 
-showDCMA(){
-  if (this.dcma){
-    this.dcma = false;
+  showDCMA() {
+    if (this.dcma) {
+      this.dcma = false;
+    }
+    else {
+      this.dcma = true;
+    }
   }
-  else{
-    this.dcma = true;
-  }
-}
-  
+
 
 
 

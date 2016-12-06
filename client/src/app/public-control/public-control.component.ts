@@ -9,8 +9,8 @@ export class PublicControlComponent implements OnInit {
 
 
   selectedChord;
-  report:boolean;
-  refresh:boolean;
+  report: boolean;
+  refresh: boolean;
 
   constructor() { }
 
@@ -19,28 +19,28 @@ export class PublicControlComponent implements OnInit {
     this.refresh = true;
   }
 
-  reset(){
-         
+  reset() {
+
     this.refresh = false;
-   
-    setTimeout(() => { this.refresh = true;}, 30); 
- 
-    
+
+    setTimeout(() => { this.refresh = true; }, 30);
+
+
   }
 
-  chordSelected(name){
+  chordSelected(name) {
     this.selectedChord = name;
-   
+
   }
 
-  goBack(){
+  goBack() {
     this.selectedChord = "";
   }
 
-  openReport(){
+  openReport() {
     this.report = true;
   }
-  closeReport(){
+  closeReport() {
     this.report = false;
   }
 

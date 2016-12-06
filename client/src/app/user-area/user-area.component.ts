@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 
@@ -7,15 +7,15 @@ import { Component, Input, OnInit} from '@angular/core';
   templateUrl: './user-area.component.html',
   styleUrls: ['./user-area.component.css']
 })
-export class UserAreaComponent implements OnInit  {
+export class UserAreaComponent implements OnInit {
   @Input() myUsername;
 
-  selectedChord:string;
+  selectedChord: string;
   edit: boolean;
   new: boolean;
   constructor() { }
 
-  
+
   ngOnInit() {
     this.selectedChord = "";
     this.edit = false;
@@ -23,26 +23,26 @@ export class UserAreaComponent implements OnInit  {
   }
 
 
-  chordSelected(name){
+  chordSelected(name) {
     this.selectedChord = name;
-   
+
   }
 
-  createNew(){
+  createNew() {
     this.new = true;
     this.selectedChord = "x";
   }
 
-  navigation(command){
-    if (command == "back"){
+  navigation(command) {
+    if (command == "back") {
       this.selectedChord = "";
     }
-    else if (command == "editback"){
+    else if (command == "editback") {
       this.edit = false;
       this.new = false;
       this.selectedChord = "";
     }
-    else{
+    else {
       this.edit = true;
     }
   }

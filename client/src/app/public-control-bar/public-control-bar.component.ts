@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'public-control-bar',
@@ -7,22 +7,22 @@ import { Component, Output, EventEmitter} from '@angular/core';
 })
 export class PublicControlBarComponent {
   @Output() back = new EventEmitter<void>();
-    @Output() openNotice = new EventEmitter<void>();
+  @Output() openNotice = new EventEmitter<void>();
 
 
 
 
-     clickBack() {
-       this.back.emit();
-       
-    }
+  clickBack() {
+    this.back.emit();
 
-     clickReport() {
-       this.openNotice.emit();
-       
-    }
+  }
+
+  clickReport() {
+    this.openNotice.emit();
+
+  }
 
 
-     
+
 
 }

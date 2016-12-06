@@ -1,35 +1,35 @@
-
-<h2>Edit Chord Sheet</h2>
+<h2>
+  Edit Chord Sheet</h2>
 <textarea #area>{{previousText}}</textarea>
 
 <p>
 
-<select #type>
+  <select #type>
   <option selected hidden>Select Visibility</option>
   <option value=true>Public</option>
   <option value=false>Private</option>
 </select>
 
-<button (click) = "submit(area.value, type.value)"> Submit</button>
-<button (click) = "clear()"> Clear </button>
-<button (click) = "delete()"> Delete </button>
-<button (click) = "back()"> Back </button>
+  <button (click)="submit(area.value, type.value)"> Submit</button>
+  <button (click)="clear()"> Clear </button>
+  <button (click)="delete()"> Delete </button>
+  <button (click)="back()"> Back </button>
 
 
 
 
 </p>
 <ul>
- <li *ngFor="let error of errors">
-      {{error}}
-    </li>
+  <li *ngFor="let error of errors">
+    {{error}}
+  </li>
 </ul>
- 
+
 
 <div *ngIf="clearSelected">
   <p> Are you sure you want to do this? </p>
-  <button (click) = "clear(); area.value = ''">Confirm</button>
-  <button (click) = "clear();">Cancel</button>
+  <button (click)="clear(); area.value = ''">Confirm</button>
+  <button (click)="clear();">Cancel</button>
 
 
 </div>

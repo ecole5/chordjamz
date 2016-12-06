@@ -1,17 +1,25 @@
-<div id = "wrapper">
+<div id="wrapper">
   <h2>Admin Panel</h2>
 
 
 
-<h2>Notices</h2>
-<ul>
- <li *ngFor="let notice of notices">
+  <h2>Notices</h2>
+  <ul>
+    <li *ngFor="let notice of notices">
       <h3>Chord Name: {{notice.songName}}</h3>
-      Messege:{{notice.content}}<br>
-      Status: {{notice.copyright}}<br>
+      <p>Messege: {{notice.content}}</p>
+      <p>Status: {{notice.copyright}}</p>
 
-      <button (click)="toggle(notice.songName)">Toggle Status</button>
+      <button (click)="toggle(notice.songName)">Toggle Status</button><br>
+      <button (click)="createEmailNotice(notice.songName)">Create Email Notice</button>
     </li>
-</ul>
+  </ul>
+
+  <div *ngIf="emailNotice">
+    <h3>Email Notice</h3>
+    <p>{{emailNotice}}</p>
+    <button (click)="closeEmailNotice()">Close</button>
 
   </div>
+
+</div>

@@ -11,7 +11,7 @@ import { ChordService } from '../services/chord.service';
 
 export class ChordListComponent implements OnInit {
 
-    @Input() username:String; //if you want you can enter a username
+    @Input() username: String; //if you want you can enter a username
 
     @Output() select = new EventEmitter<String>();
 
@@ -19,11 +19,11 @@ export class ChordListComponent implements OnInit {
 
     constructor(private chordService: ChordService) {
         this.username = ""; //defaults to no username entered
-     } //will get injected
+    } //will get injected
 
     ngOnInit() {
         this.getChords(this.username);
- 
+
     }
 
     onSelect(chord: Chord): void {
@@ -34,12 +34,12 @@ export class ChordListComponent implements OnInit {
     getChords(username) {
         if (username == "") {
             this.chordService.getPublicNames().subscribe(data => this.chords = data); //subscribe to the stream of events (the observable)
-             
+
 
         }
         else {
-         
-              
+
+
             this.chordService.getPrivateNames(username).subscribe(data => this.chords = data); //subscribe to the stream of events (the observable)
         }
     }

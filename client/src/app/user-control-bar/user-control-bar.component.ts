@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'user-control-bar',
@@ -8,15 +8,15 @@ import { Component, Output, EventEmitter} from '@angular/core';
 export class UserControlBarComponent {
   @Output() change = new EventEmitter<string>();
   clickBack() {
-       this.change.emit("back");
-       
-    }
-      clickEdit() {
-       this.change.emit("edit");
-       
-    }
+    this.change.emit("back");
 
-  
- 
+  }
+  clickEdit() {
+    this.change.emit("edit");
+
+  }
+
+
+
 
 }

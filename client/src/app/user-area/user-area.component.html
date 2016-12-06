@@ -1,34 +1,34 @@
-<div id = "wrapper">
-<h2>Welcome {{myUsername}} to the user area </h2>
-<button (click)="createNew()">New Chord</button>
+<div id="wrapper">
+      <h2>Welcome {{myUsername}} to the user area </h2>
+      <button (click)="createNew()">New Chord</button>
 
 
- <div *ngIf="selectedChord==false">
-  <chord-list (select) = "chordSelected($event)" [username] = "myUsername" >
-  </chord-list>
- </div>
+      <div *ngIf="selectedChord==false">
+            <chord-list (select)="chordSelected($event)" [username]="myUsername">
+            </chord-list>
+      </div>
 
 
- <div *ngIf="selectedChord && edit==false && new==false">
-       <view-chord [chordName] = "selectedChord"> </view-chord>
-  <user-control-bar (change) = "navigation($event)"></user-control-bar>
+      <div *ngIf="selectedChord && edit==false && new==false">
+            <view-chord [chordName]="selectedChord"> </view-chord>
+            <user-control-bar (change)="navigation($event)"></user-control-bar>
 
- </div>
-
- 
- <div *ngIf="new">
- <edit-chord [myUsername] = "myUsername" (doneEdit) = "navigation($event)"></edit-chord>
- </div>
+      </div>
 
 
- 
- <div *ngIf="edit">
-  <edit-chord [myUsername] = "myUsername" [currentChordName]= "selectedChord" (doneEdit) = "navigation($event)"></edit-chord>
- </div>
- 
- 
+      <div *ngIf="new">
+            <edit-chord [myUsername]="myUsername" (doneEdit)="navigation($event)"></edit-chord>
+      </div>
 
 
- 
 
- </div>
+      <div *ngIf="edit">
+            <edit-chord [myUsername]="myUsername" [currentChordName]="selectedChord" (doneEdit)="navigation($event)"></edit-chord>
+      </div>
+
+
+
+
+
+
+</div>

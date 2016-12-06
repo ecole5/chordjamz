@@ -7,34 +7,46 @@ import { Notice } from '../models/notice';
   selector: 'admin-panel',
   templateUrl: './admin-panel.component.html',
   styleUrls: ['./admin-panel.component.css'],
-   providers: [DmcaService, ChordService]
+  providers: [DmcaService, ChordService]
 })
 export class AdminPanelComponent implements OnInit {
 
 
   notices: Notice[];
+  emailNotice: string;
 
-  constructor(private dmcaService: DmcaService, private chordService: ChordService) {} //will get injecte
+  constructor(private dmcaService: DmcaService, private chordService: ChordService) { } //will get injecte
 
 
   ngOnInit() {
-     this.dmcaService.getNotice().subscribe(data => this.notices = data);
+    this.dmcaService.getNotice().subscribe(data => this.notices = data);
   }
 
-  toggle(songName){
+  toggle(songName) {
     this.dmcaService.toggleNotice(songName).subscribe();
     this.chordService.toggleVisibility(songName).subscribe();
-    for (let notice of this.notices){
-      if (notice.songName == songName){
-        if (notice.copyright == "Visable"){
+    for (let notice of this.notices) {
+      if (notice.songName == songName) {
+        if (notice.copyright == "Visable") {
           notice.copyright = "Hidden";
         }
-        else{
+        else {
           notice.copyright = "Visable";
         }
         break;
       }
     }
+  }
+
+  createEmailNotice(songName) {
+    this.emailNotice = "A notice has been recived by the right holders to " + songName + " that you are infringing upon their copyright. You may file a counterclaim by emailing copyright@chordjamz.com."
+
+
+  }
+
+  closeEmailNotice(songName) {
+    this.emailNotice = "";
+
   }
 
 }

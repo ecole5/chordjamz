@@ -1,30 +1,24 @@
-<div id = wrapper>
-<h1>ChordJamz</h1>
-<p>Welcome to ChordJamz, the site for all your chord sheet needs.</p>
-<input #input>
-<button (click)="login(input.value); input.value = '' ">Login</button>
-<button (click)="logout()">Logout</button>
-<button (click)="createNewUser()">Create Account</button>
-<p>{{status}}</p>
+<div id=w rapper>
+    <h1>ChordJamz</h1>
+    <p>Welcome to ChordJamz, the site for all your chord sheet needs.</p>
+    <input #input>
+    <button (click)="login(input.value); input.value = '' ">Login</button>
+    <button (click)="logout()">Logout</button>
+    <button (click)="createNewUser()">Create Account</button>
+    <p>{{status}}</p>
 
-<!--New user form open/close control -->
-<div *ngIf="newUserOpen">
- <new-user (onCreated) = "closeNewUser()"></new-user>
-</div>
+    <!--New user form open/close control -->
+    <div *ngIf="newUserOpen">
+        <new-user (onCreated)="closeNewUser()"></new-user>
+    </div>
 </div>
 
 <!--Open a user area if nessasary-->
- <div *ngIf="username">
-  <user-area [myUsername] = "username"></user-area>
- </div>
+<div *ngIf="username">
+    <user-area [myUsername]="username"></user-area>
+</div>
 
- <!--Admin panel control -->
- <div *ngIf="admin">
-  <admin-panel></admin-panel>
- </div>
-
-
-
-
-
-
+<!--Admin panel control -->
+<div *ngIf="admin">
+    <admin-panel></admin-panel>
+</div>
