@@ -1,8 +1,9 @@
 <account-control></account-control>
 <public-control></public-control>
-<button (click)="showPrivacy()">Privacy Policy</button><br>
 
 
+<div id = "wrapper">
+<button (click)="showPrivacy()">Toggle Privacy Policy</button><br>
 <div *ngIf="privacy">
 
     <h2>Privacy Policy</h2>
@@ -37,7 +38,7 @@
 
 </div>
 
-<button (click)="showDCMA()">DCMA Notice and Takedown Policy</button>
+<button (click)="showDCMA()">Toggle DCMA Notice and Takedown Policy</button>
 
 
 
@@ -100,4 +101,5 @@
 
 
 
+</div>
 </div>

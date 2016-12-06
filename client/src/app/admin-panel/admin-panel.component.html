@@ -1,8 +1,12 @@
 <div id="wrapper">
   <h2>Admin Panel</h2>
+  <button (click)="toggleHelp()">Toggle Help</button><br>
 
-
-
+  <div *ngIf="help">
+    <h2> Adminstrator Tools Workflow</h2>
+    <p>The following will briefly describe how to use the adminstrator tools of chordjamz. When a content holder feels their copyright is being violated they may submit a notice by navigating to a public chord sheet and clicking report. In this report they will enter the information that proves they are the content holder and provide contact information. As the adminstrator you log onto the site using your user name Admin. In the adminstrator panel you will be able to see all the notices issued by right's holders and to which chord sheet they apply to. If the notice contains sufficent information you must disable the chord sheet by pressing toogle status. By toggling the status you may hide or show a chord sheet from the public area. The public area view will be updated when you reload the page or click refresh. If the status is hidden it will not appear in the public area. You then must generate an email by clicking Create Email Notice on the specific chord sheet and then send that email to the creator of the chord sheet. If they respond with a valid counterclaim they you may click toggle status again to reinstate the chord sheet at the appropriate time. </p>
+  
+  </div>
   <h2>Notices</h2>
   <ul>
     <li *ngFor="let notice of notices">
@@ -21,5 +25,6 @@
     <button (click)="closeEmailNotice()">Close</button>
 
   </div>
+
 
 </div>

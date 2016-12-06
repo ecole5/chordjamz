@@ -5,7 +5,12 @@
     width: 100%;
 }
 body {
-  margin: 0px;
+  width:97%;
+  margin:0%;
+}
+
+textarea{
+  width:100%;
 }
 
 

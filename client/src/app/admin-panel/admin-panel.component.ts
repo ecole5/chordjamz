@@ -14,14 +14,25 @@ export class AdminPanelComponent implements OnInit {
 
   notices: Notice[];
   emailNotice: string;
+  help: boolean;
 
   constructor(private dmcaService: DmcaService, private chordService: ChordService) { } //will get injecte
 
 
   ngOnInit() {
     this.dmcaService.getNotice().subscribe(data => this.notices = data);
+    this.help = false;
   }
 
+
+  toggleHelp(){
+    if (this.help){
+      this.help = false;
+    }
+    else{
+      this.help = true;
+    }
+  }
   toggle(songName) {
     this.dmcaService.toggleNotice(songName).subscribe();
     this.chordService.toggleVisibility(songName).subscribe();
