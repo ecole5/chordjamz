@@ -17,17 +17,17 @@ export class NewUserComponent {
   constructor(private loginService: LoginService) { }
 
 
-  //Close component
+  // Close component
   cancel() {
     this.onCreated.emit(true);
   }
 
-  //Creates a new user
+  // Creates a new user
   newUser(userName) {
 
-    //If nothing entered
-    if (userName == '') {
-      this.feedback = "Please input a value";
+    // If nothing entered
+    if (userName === '') {
+      this.feedback = 'Please input a value';
     }
 
     else {

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ChordService } from '../services/chord.service';
 import { Chord } from '../models/chord';
 
+
 @Component({
   selector: 'view-chord',
   templateUrl: './view-chord.component.html',
@@ -11,10 +12,10 @@ import { Chord } from '../models/chord';
 export class ViewChordComponent implements OnInit {
 
   @Input() chordName: String;
-  chordpro = require("chordprojs");
+  //chordpro = require("chordprojs");
   content; //the inner html of the div of the display
   chord: Chord[];
-  author
+  author;
   version;
   modified;
   type;
@@ -27,7 +28,7 @@ export class ViewChordComponent implements OnInit {
   }
 
   display() {
-
+/*
     if (this.chord[0].valid) {
 
       this.content = this.chordpro.format(this.chord[0].content).html; //parse chordpro to html using chordpro format
@@ -55,13 +56,10 @@ export class ViewChordComponent implements OnInit {
       this.content = "<p>This chord file contained a warning, so it was not displayed</p>";
     }
   }
-
+*/
+this.author = "cool";
+this.content = "cool";
+this.type = "Public";
 }
 
-
-
-
-
-
-
-
+}

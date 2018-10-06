@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Rx';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Notice } from '../models/notice';
 
 @Injectable()
@@ -14,11 +14,11 @@ export class DmcaService {
     var json = JSON.stringify({ content: content });
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post('api/notice/' + songName, json, options).map(res => res.json())
+    return this.http.post('api/notice/' + songName, json, options).pipe(map(res => res.json()))
   }
 
   getNotice() {
-    return this.http.get('api/notice/').map(res => res.json());
+    return this.http.get('api/notice/').pipe(map(res => res.json()));
   }
   toggleNotice(songName){
     var json = JSON.stringify({});
@@ -26,7 +26,7 @@ export class DmcaService {
     let options = new RequestOptions({ headers: headers });
 
 
-    return this.http.put('api/notice/'+songName, json,options).map(res => res.json())
+    return this.http.put('api/notice/'+songName, json,options).pipe(map(res => res.json()))
 }
 
   updateName(originalSongName,songName){
@@ -35,7 +35,7 @@ export class DmcaService {
     let options = new RequestOptions({ headers: headers });
 
 
-    return this.http.put('api/notice/update/'+originalSongName, json,options).map(res => res.json())
+    return this.http.put('api/notice/update/'+originalSongName, json,options).pipe(map(res => res.json()))
 }
 
 
